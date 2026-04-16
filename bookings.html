@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<header class="navbar">
+    <h1>LabBook</h1>
+    <nav>
+        <a href="equipment.html">Equipment</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="#" onclick="logout()">Logout</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+    </nav>
+</header>
+
+<section class="dashboard">
+    <h2>Your Bookings</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Equipment</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="bookingTable"></tbody>
+    </table>
+
+    <button onclick="loadBookings()">Refresh</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
