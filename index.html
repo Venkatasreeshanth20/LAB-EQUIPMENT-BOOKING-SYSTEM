@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<a href="dashboard.html" class="active">Dashboard</a>
+<head>
+    <title>LabBook Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
+<header class="navbar">
+    <h1>🔬 LabBook</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#equipment">Equipment</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Smart Lab Equipment Booking</h2>
+    <button onclick="goToEquipment()">Start Booking</button>
+</section>
+
+<section class="equipment" id="equipment">
+    <h2>Available Equipment</h2>
+
+    <div class="cards">
+
+        <div class="card"><h3>Microscope</h3><button onclick="openModal('Microscope')">Book</button></div>
+        <div class="card"><h3>3D Printer</h3><button onclick="openModal('3D Printer')">Book</button></div>
+        <div class="card"><h3>Oscilloscope</h3><button onclick="openModal('Oscilloscope')">Book</button></div>
+        <div class="card"><h3>Power Supply</h3><button onclick="openModal('Power Supply')">Book</button></div>
+        <div class="card"><h3>Multimeter</h3><button onclick="openModal('Multimeter')">Book</button></div>
+        <div class="card"><h3>IoT Kit</h3><button onclick="openModal('IoT Kit')">Book</button></div>
+
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard" id="dashboard">
+    <h2>Your Bookings</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Equipment</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="bookingTable"></tbody>
+    </table>
+
+    <button onclick="loadBookings()">Refresh</button>
+</section>
+
+<!-- MODAL -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="equipmentName"></h2>
+
+        <input type="date" id="date">
+        <select id="time">
+            <option value="">Select Time</option>
+            <option>9-11</option>
+            <option>11-1</option>
+            <option>2-4</option>
+        </select>
+
+        <button onclick="confirmBooking()">Confirm</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
