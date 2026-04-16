@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<header class="navbar">
+    <h1>LabBook</h1>
+    <nav>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="equipment.html">Equipment</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+</header>
+<section class="dashboard">
+
+    <h2 class="dashboard-title">Dashboard Overview</h2>
+
+    <!-- STATS -->
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h3 id="totalBookings">0</h3>
+            <p>Total Bookings</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="todayBookings">0</h3>
+            <p>Today's Bookings</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>10+</h3>
+            <p>Equipment Available</p>
+        </div>
+
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-container">
+        <canvas id="bookingChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="equipmentChart"></canvas>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+
+
+</body>
+</html>
