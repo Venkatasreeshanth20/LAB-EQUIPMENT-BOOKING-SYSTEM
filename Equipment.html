@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<header class="navbar">
+    <h1>LabBook</h1>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="equipment.html">Equipment</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+</header>
+
+<section class="equipment">
+    <h2>Available Equipment</h2>
+
+    <div class="cards">
+
+        <div class="card"><h3>Microscope</h3><button onclick="openModal('Microscope')">Book</button></div>
+        <div class="card"><h3>3D Printer</h3><button onclick="openModal('3D Printer')">Book</button></div>
+        <div class="card"><h3>Oscilloscope</h3><button onclick="openModal('Oscilloscope')">Book</button></div>
+        <div class="card"><h3>Power Supply</h3><button onclick="openModal('Power Supply')">Book</button></div>
+        <div class="card"><h3>Multimeter</h3><button onclick="openModal('Multimeter')">Book</button></div>
+
+        <div class="card"><h3>Function Generator</h3><button onclick="openModal('Function Generator')">Book</button></div>
+        <div class="card"><h3>Spectrum Analyzer</h3><button onclick="openModal('Spectrum Analyzer')">Book</button></div>
+        <div class="card"><h3>IoT Kit</h3><button onclick="openModal('IoT Kit')">Book</button></div>
+        <div class="card"><h3>Physics Lab Kit</h3><button onclick="openModal('Physics Lab Kit')">Book</button></div>
+        <div class="card"><h3>Embedded Kit</h3><button onclick="openModal('Embedded Kit')">Book</button></div>
+
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="equipmentName"></h2>
+
+        <input type="date" id="date">
+        <select id="time">
+            <option value="">Select Time</option>
+            <option>9-11</option>
+            <option>11-1</option>
+            <option>2-4</option>
+        </select>
+
+        <p id="slotInfo" style="margin-top:10px;"></p>
+
+        <button onclick="confirmBooking()">Confirm Booking</button>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
